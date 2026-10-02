@@ -9,7 +9,7 @@ export default function Beneficios() {
   useReveal(ref)
 
   return (
-    <section id="beneficios" className="relative py-20 lg:py-28">
+    <section id="beneficios" className="relative py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Por qué comprarnos"

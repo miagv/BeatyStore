@@ -94,7 +94,7 @@ export default function Contacto() {
 
   if (status === 'success') {
     return (
-      <section id="contacto" className="py-20 lg:py-28">
+      <section id="contacto" className="py-16 lg:py-20">
         <div className="mx-auto max-w-3xl px-5 sm:px-8">
           <div
             ref={sectionRef}
@@ -123,7 +123,7 @@ export default function Contacto() {
   }
 
   return (
-    <section id="contacto" className="py-20 lg:py-28">
+    <section id="contacto" className="py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Contacto"
@@ -131,7 +131,7 @@ export default function Contacto() {
           text="Contanos qué te preocupa y una asesora te arma una rutina a medida. Respondemos en menos de 24 h hábiles."
         />
 
-        <div ref={sectionRef} className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
+        <div ref={sectionRef} className="mt-10 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
           <form
             noValidate
             onSubmit={handleSubmit}

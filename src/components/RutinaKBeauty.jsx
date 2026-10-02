@@ -9,7 +9,7 @@ export default function RutinaKBeauty() {
   useReveal(ref)
 
   return (
-    <section id="rutina" className="relative overflow-hidden py-20 lg:py-28">
+    <section id="rutina" className="relative overflow-hidden py-16 lg:py-20">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-1/3 left-1/2 size-140 -translate-x-1/2 rounded-full bg-blush-200/40 blur-3xl dark:bg-blush-800/20" />
       </div>

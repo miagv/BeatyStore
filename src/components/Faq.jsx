@@ -9,7 +9,7 @@ export default function Faq() {
   useReveal(ref)
 
   return (
-    <section id="faq" className="py-20 lg:py-28">
+    <section id="faq" className="py-16 lg:py-20">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <SectionHeading
           align="left"

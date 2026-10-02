@@ -4,15 +4,16 @@
   description:
     'Maquillaje y skincare coreano de importación directa. Productos originales, asesoría personalizada y envío a todo el país.',
   formEndpoint: 'https://formspree.io/f/xyezqapa',
-  heroImage: '/productos/hero.jpg',
+  heroImage: '/productos/hero-principal.jpg',
+  freeShippingFrom: 199,
   email: 'hola@beautystore.com',
-  phone: '+54 11 5555 1234',
-  address: 'Av. Santa Fe 1420, CABA, Argentina',
-  hours: 'Lunes a viernes de 9 a 19 h (GMT-3)',
+  phone: '+51 987 654 321',
+  address: 'Av. Arequipa 1234, Of. 502, Lince, Lima',
+  hours: 'Lunes a viernes de 9 a 19 h (GMT-5)',
   social: [
     { label: 'Instagram', href: 'https://instagram.com', handle: '@beautystore' },
     { label: 'TikTok', href: 'https://tiktok.com', handle: '@beautystore' },
-    { label: 'WhatsApp', href: 'https://wa.me/541155551234', handle: '+54 11 5555 1234' },
+    { label: 'WhatsApp', href: 'https://wa.me/51987654321', handle: '+51 987 654 321' },
   ],
 }
 
@@ -32,7 +33,7 @@ export const benefits = [
   },
   {
     title: 'Envío a todo el país',
-    text: 'Despachamos en 24 h hábiles. Gratis en compras superiores a $45.000.',
+    text: 'Despachamos en 24 h hábiles. Gratis en compras superiores a S/ 199.',
     icon: 'truck',
   },
   {
@@ -54,7 +55,7 @@ export const products = [
     name: 'Sérum Niacinamida 12%',
     brand: 'Beauty Store Lab',
     category: 'skincare',
-    price: 18900,
+    price: 89,
     badge: 'Más vendido',
     text: 'Aclara marcas, regula el sebo y fortalece la barrera. Textura acuosa, absorción inmediata.',
   },
@@ -64,7 +65,7 @@ export const products = [
     name: 'Tónico Centella Asiática',
     brand: 'Beauty Store Lab',
     category: 'skincare',
-    price: 16400,
+    price: 79,
     badge: null,
     text: 'Calma la irritación y prepara la piel para todo lo que venga después.',
   },
@@ -74,7 +75,7 @@ export const products = [
     name: 'Crema Barrera Ceramidas',
     brand: 'Beauty Store Lab',
     category: 'skincare',
-    price: 21900,
+    price: 119,
     badge: null,
     text: 'Ceramidas, escualano y colesterol. Para piel reactiva o reseca.',
   },
@@ -84,7 +85,7 @@ export const products = [
     name: 'Lip Tint Hipoalérgenico',
     brand: 'Beauty Store Lab',
     category: 'maquillaje',
-    price: 14900,
+    price: 69,
     badge: 'Nuevo',
     text: 'Color rosado que se difumina con un toque. No reseca los labios.',
   },
@@ -94,7 +95,7 @@ export const products = [
     name: 'Protector Solar SPF 50+',
     brand: 'Beauty Store Lab',
     category: 'skincare',
-    price: 23900,
+    price: 139,
     badge: null,
     text: 'Acabado satinado invisible, sin marca blanca. El paso que nadie se saltea.',
   },
@@ -104,7 +105,7 @@ export const products = [
     name: 'Mascarilla de Arcilla Rosa',
     brand: 'Beauty Store Lab',
     category: 'skincare',
-    price: 17900,
+    price: 79,
     badge: null,
     text: 'Limpia poros sin resecar la piel. Cinco minutos y listo.',
   },
@@ -168,8 +169,44 @@ export const testimonials = [
     name: 'Julieta S.',
     location: 'Rosario',
     rating: 5,
-    avatar: null,
+    avatar: '/productos/avatar-julieta.webp',
     text: 'Llegó en tres días y con el sello puesto. El lip tint es rosado suave, no el labial rouge de siempre.',
+  },
+]
+
+export const priceFormat = new Intl.NumberFormat('es-PE', {
+  style: 'currency',
+  currency: 'PEN',
+  maximumFractionDigits: 0,
+})
+
+export const marqueeImages = [
+  {
+    src: '/productos/galeria-apaisado-1.webp',
+    alt: 'Maquillaje y skincare coreano de la colección Beauty Store',
+  },
+  {
+    src: '/productos/galeria-apaisado-2.jpg',
+    alt: 'Productos de belleza coreana sobre una superficie rosa',
+  },
+  {
+    src: '/productos/galeria-cuadrado-1.jpg',
+    alt: 'Detalle de un producto de skincare importado de Corea del Sur',
+  },
+]
+
+export const galleryImages = [
+  {
+    src: '/productos/galeria-vertical-1.jpg',
+    alt: 'Rutina de skincare coreano paso a paso',
+  },
+  {
+    src: '/productos/galeria-vertical-2.jpg',
+    alt: 'Texturas y acabados de productos de belleza coreana',
+  },
+  {
+    src: '/productos/galeria-cuadrado-2.webp',
+    alt: 'Frasco de sérum de la línea Beauty Store Lab',
   },
 ]
 
@@ -180,7 +217,7 @@ export const faqs = [
   },
   {
     q: '¿Cuánto tarda el envío?',
-    a: 'Despachamos dentro de las 24 h hábiles y normalmente entregamos entre 2 y 5 días según la zona. El envío es gratis en compras superiores a $45.000.',
+    a: 'Despachamos dentro de las 24 h hábiles y normalmente entregamos entre 2 y 5 días según la zona. El envío es gratis en compras superiores a S/ 199.',
   },
   {
     q: '¿Puedo cambiar un producto?',

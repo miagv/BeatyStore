@@ -1,15 +1,9 @@
 import { useRef, useState } from 'react'
-import { categories, products } from '../data/site'
+import { categories, priceFormat, products } from '../data/site'
 import { useReveal } from '../hooks/useReveal'
 import Icon from './Icon'
 import ProductImage from './ProductImage'
 import SectionHeading from './SectionHeading'
-
-const priceFormat = new Intl.NumberFormat('es-AR', {
-  style: 'currency',
-  currency: 'ARS',
-  maximumFractionDigits: 0,
-})
 
 export default function Productos() {
   const [active, setActive] = useState('todos')
@@ -19,7 +13,7 @@ export default function Productos() {
   const visible = active === 'todos' ? products : products.filter((p) => p.category === active)
 
   return (
-    <section id="productos" className="relative py-20 lg:py-28">
+    <section id="productos" className="relative py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Catálogo"

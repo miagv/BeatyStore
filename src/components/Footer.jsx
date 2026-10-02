@@ -8,7 +8,7 @@ const socialIcons = { Instagram: 'instagram', TikTok: 'tiktok', WhatsApp: 'whats
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-surface-sunken">
-      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:py-14">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <a href="#inicio" className="flex items-center gap-2.5">

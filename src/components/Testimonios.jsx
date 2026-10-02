@@ -39,7 +39,7 @@ export default function Testimonios() {
   useReveal(ref)
 
   return (
-    <section id="opiniones" className="py-20 lg:py-28">
+    <section id="opiniones" className="py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Opiniones"

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Icon from './Icon'
-import { site } from '../data/site'
+import { priceFormat, site } from '../data/site'
 
 const stats = [
   { value: '12k+', label: 'clientas felices' },
@@ -12,7 +12,7 @@ export default function Hero() {
   const [heroFailed, setHeroFailed] = useState(false)
 
   return (
-    <section id="inicio" className="relative overflow-hidden pt-28 pb-20 sm:pt-32 lg:pt-36 lg:pb-28">
+    <section id="inicio" className="relative overflow-hidden pt-24 pb-14 sm:pt-28 lg:pt-32 lg:pb-20">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="animate-float-slow absolute -top-32 -left-24 size-105 rounded-full bg-blush-200/50 blur-3xl dark:bg-blush-800/25" />
         <div className="animate-float absolute top-40 -right-28 size-125 rounded-full bg-blush-300/45 blur-3xl dark:bg-blush-700/25" />
@@ -52,7 +52,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <dl className="mt-12 grid w-full max-w-2xl grid-cols-3 gap-4 border-t border-line pt-8">
+          <dl className="mt-10 grid w-full max-w-2xl grid-cols-3 gap-4 border-t border-line pt-6">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <dt className="font-display text-2xl font-semibold text-accent sm:text-3xl">
@@ -66,10 +66,10 @@ export default function Hero() {
 
         <div
           data-reveal
-          className="relative mt-14 overflow-hidden rounded-4xl bg-gradient-to-br from-blush-100 via-blush-200 to-blush-400 shadow-lift dark:from-blush-900 dark:via-blush-800 dark:to-blush-600"
+          className="relative mt-10 overflow-hidden rounded-4xl bg-gradient-to-br from-blush-100 via-blush-200 to-blush-400 shadow-lift dark:from-blush-900 dark:via-blush-800 dark:to-blush-600"
         >
           {heroFailed ? (
-            <div className="flex aspect-3/1 items-center justify-center px-6 text-center">
+            <div className="flex aspect-4/3 items-center justify-center px-6 text-center sm:aspect-3/1">
               <p className="text-sm text-blush-900/70 dark:text-blush-100/70">
                 Reemplazá <code className="font-semibold">heroImage</code> en{' '}
                 <code className="font-semibold">src/data/site.js</code>.
@@ -82,7 +82,7 @@ export default function Hero() {
               onError={() => setHeroFailed(true)}
               fetchPriority="high"
               decoding="async"
-              className="aspect-3/1 w-full object-cover"
+              className="aspect-4/3 w-full object-cover sm:aspect-3/1"
             />
           )}
 
@@ -91,7 +91,10 @@ export default function Hero() {
               <Icon name="check" className="size-4.5" />
             </span>
             <p className="text-xs leading-snug text-muted">
-              Envío gratis desde <span className="font-semibold text-body">$45.000</span>
+              Envío gratis desde{' '}
+              <span className="font-semibold text-body">
+                {priceFormat.format(site.freeShippingFrom)}
+              </span>
             </p>
           </div>
         </div>
