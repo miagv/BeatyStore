@@ -10,14 +10,14 @@ export default function Beneficios() {
 
   return (
     <section id="beneficios" className="relative py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div ref={ref} className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Por qué comprarnos"
           title="Belleza que llega bien"
           text="Cuidamos cada detalle desde el container de Seúl hasta tu baño: producto real, precios sin intermediarios y una persona real respondiendo."
         />
 
-        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, i) => (
             <li
               key={benefit.title}

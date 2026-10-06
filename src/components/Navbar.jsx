@@ -53,7 +53,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-1 xl:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -89,7 +89,7 @@ export default function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
-            className="grid size-10 place-items-center rounded-full border border-line bg-surface-raised/70 text-body lg:hidden"
+            className="grid size-10 place-items-center rounded-full border border-line bg-surface-raised/70 text-body xl:hidden"
           >
             <Icon name={open ? 'close' : 'menu'} className="size-5" />
           </button>
@@ -97,8 +97,8 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`overflow-hidden border-line bg-surface transition-[max-height,opacity] duration-300 lg:hidden ${
-          open ? 'max-h-96 border-t opacity-100' : 'max-h-0 opacity-0'
+        className={`overflow-hidden border-line bg-surface transition-[max-height,opacity] duration-300 xl:hidden ${
+          open ? 'max-h-120 border-t opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <ul className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 sm:px-8">

@@ -10,15 +10,29 @@ export default function Faq() {
 
   return (
     <section id="faq" className="py-16 lg:py-20">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-        <SectionHeading
-          align="left"
-          eyebrow="Preguntas"
-          title="Todo lo que suelen preguntarnos"
-          text="Si tu duda no está acá, escribinos y te respondemos en menos de 24 h hábiles."
-        />
+      <div
+        ref={ref}
+        className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16"
+      >
+        <div>
+          <SectionHeading
+            align="left"
+            eyebrow="Preguntas"
+            title="Todo lo que suelen preguntarnos"
+            text="Si tu duda no está acá, escribinos y te respondemos en menos de 24 h hábiles."
+          />
 
-        <ul ref={ref} className="divide-y divide-line border-y border-line">
+          <img
+            data-reveal
+            src="/productos/faq-foto.jpg"
+            alt="Detalle de la textura de un producto de skincare"
+            loading="lazy"
+            decoding="async"
+            className="mt-10 hidden w-full rounded-4xl object-cover shadow-soft sm:block lg:aspect-4/5"
+          />
+        </div>
+
+        <ul className="divide-y divide-line border-y border-line">
           {faqs.map((faq, i) => (
             <li key={faq.q} data-reveal data-reveal-delay={i * 70}>
               <details className="group">

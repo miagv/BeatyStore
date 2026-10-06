@@ -7,7 +7,9 @@ import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Productos from './components/Productos'
 import RutinaKBeauty from './components/RutinaKBeauty'
+import SobreNosotros from './components/SobreNosotros'
 import Testimonios from './components/Testimonios'
+import TiposDePiel from './components/TiposDePiel'
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
         <Productos />
         <Galeria />
         <RutinaKBeauty />
+        <TiposDePiel />
         <Testimonios />
+        <SobreNosotros />
         <Faq />
         <Contacto />
       </main>

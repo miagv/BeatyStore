@@ -1,15 +1,18 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
 /**
- * Marca los hijos de `ref` con data-reveal y los revela al entrar en viewport.
+ * Marca los elementos con data-reveal de `ref` como `pending` y los revela al
+ * entrar en viewport. Los que no llegue a procesar quedan visibles sin
+ * animación (el CSS solo oculta el estado `pending`).
  * Respeta prefers-reduced-motion (el CSS desactiva la transición).
  */
 export function useReveal(ref, { threshold = 0.15, rootMargin = '0px 0px -60px' } = {}) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = ref.current
     if (!container) return
 
-    const targets = container.querySelectorAll('[data-reveal]')
+    const targets = [...container.querySelectorAll('[data-reveal]')]
+    if (container.hasAttribute('data-reveal')) targets.unshift(container)
     if (!targets.length) return
 
     targets.forEach((el) => el.setAttribute('data-reveal', 'pending'))

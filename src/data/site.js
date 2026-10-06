@@ -4,7 +4,7 @@
   description:
     'Maquillaje y skincare coreano de importación directa. Productos originales, asesoría personalizada y envío a todo el país.',
   formEndpoint: 'https://formspree.io/f/xyezqapa',
-  heroImage: '/productos/hero-principal.jpg',
+  heroImage: '/productos/hero-fondo.jpg',
   freeShippingFrom: 199,
   email: 'hola@beautystore.com',
   phone: '+51 987 654 321',
@@ -20,7 +20,9 @@
 export const navLinks = [
   { label: 'Productos', href: '#productos' },
   { label: 'Rutina', href: '#rutina' },
+  { label: 'Tipos de piel', href: '#tipos-de-piel' },
   { label: 'Beneficios', href: '#beneficios' },
+  { label: 'Nosotros', href: '#nosotros' },
   { label: 'Opiniones', href: '#opiniones' },
   { label: 'Contacto', href: '#contacto' },
 ]
@@ -171,6 +173,72 @@ export const testimonials = [
     rating: 5,
     avatar: '/productos/avatar-julieta.webp',
     text: 'Llegó en tres días y con el sello puesto. El lip tint es rosado suave, no el labial rouge de siempre.',
+  },
+]
+
+export const about = {
+  eyebrow: 'Sobre nosotros',
+  title: 'De Seúl a tu espejo',
+  text: 'Empezamos en 2021 con una valija, dos valijas al año y una lista de clientes que creció sola. Hoy trabajamos directo con distribuidores autorizados en Corea del Sur y despachamos desde Lima: el mismo producto, sin la cadena de intermediarios que encarece todo.',
+  points: [
+    {
+      icon: 'globe',
+      title: 'Importación directa',
+      text: 'Compramos a distribuidores oficiales en Seúl, con factura y sello de lote.',
+    },
+    {
+      icon: 'truck',
+      title: 'Envío propio desde Lima',
+      text: 'Despachamos en 24 h hábiles y llegamos a todo el país en 2 a 5 días.',
+    },
+    {
+      icon: 'chat',
+      title: 'Asesoría de personas reales',
+      text: 'No hay bot detrás del formulario: una asesora lee tu caso y te responde.',
+    },
+  ],
+  stats: [
+    { value: '2021', label: 'empezamos en Lima' },
+    { value: '3.400+', label: 'pedidos entregados' },
+    { value: '12', label: 'marcas coreanas' },
+  ],
+}
+
+export const skinTypes = [
+  {
+    id: 'grasa',
+    icon: 'drop',
+    title: 'Piel grasa',
+    text: 'Exceso de sebo, poros visibles y brillo que aparece a media tarde, sobre todo en la zona T.',
+    hint: 'Niacinamida y tónicos con AHA/BHA. Texturas en gel, nada de aceites pesados.',
+  },
+  {
+    id: 'seca',
+    icon: 'sun',
+    title: 'Piel seca',
+    text: 'Tirantez justo después de lavarte, descamación fina y aspecto apagado sin humectación.',
+    hint: 'Ceramidas, escualano y ácido hialurónico. Aplicá sobre piel aún húmeda.',
+  },
+  {
+    id: 'mixta',
+    icon: 'moon',
+    title: 'Piel mixta',
+    text: 'Zona T grasa con poros abiertos y mejillas normales o secas que se resecan en invierno.',
+    hint: 'Tratala por zonas: control de sebo en la T, hidratación en las mejillas.',
+  },
+  {
+    id: 'sensible',
+    icon: 'leaf',
+    title: 'Piel sensible',
+    text: 'Enrojecimiento, picazón o reacción rápida cuando probás un producto nuevo.',
+    hint: 'Centella asiática y pantenol. Sin fragancia, sin alcohol y con prueba de tolerancia.',
+  },
+  {
+    id: 'acneica',
+    icon: 'sparkle',
+    title: 'Tendencia acneica',
+    text: 'Granitos recurrentes, puntos negros y marcas oscuras que se quedan después de cada brote.',
+    hint: 'BHA para desobstruir y niacinamida para las marcas. Todo no comedogénico.',
   },
 ]
 

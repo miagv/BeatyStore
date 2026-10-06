@@ -12,13 +12,48 @@ export default function Hero() {
   const [heroFailed, setHeroFailed] = useState(false)
 
   return (
-    <section id="inicio" className="relative overflow-hidden pt-24 pb-14 sm:pt-28 lg:pt-32 lg:pb-20">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="animate-float-slow absolute -top-32 -left-24 size-105 rounded-full bg-blush-200/50 blur-3xl dark:bg-blush-800/25" />
-        <div className="animate-float absolute top-40 -right-28 size-125 rounded-full bg-blush-300/45 blur-3xl dark:bg-blush-700/25" />
+    <section
+      id="inicio"
+      className="relative overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-24 lg:pt-32"
+    >
+      {/* Base: se ve solo si la imagen de fondo no carga. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-br from-blush-100 via-blush-200 to-blush-400 dark:from-blush-900 dark:via-blush-800 dark:to-blush-600"
+      />
+
+      {/* Fondo a pantalla completa. object-cover recorta, nunca deforma. */}
+      {!heroFailed && (
+        <img
+          src={site.heroImage}
+          alt=""
+          aria-hidden="true"
+          onError={() => setHeroFailed(true)}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 size-full object-cover object-center"
+        />
+      )}
+
+      {/* Degradado de legibilidad. En móvil cubre más porque el texto ocupa
+          todo el ancho; en escritorio deja el fondo más visible a la derecha. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-b from-surface/90 via-surface/85 to-surface/95 sm:bg-gradient-to-r sm:from-surface sm:via-surface/95 sm:to-surface/50"
+      />
+
+      {/* Fundido con la sección que sigue, para que no corte en seco. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-surface to-transparent"
+      />
+
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="animate-float-slow absolute -top-32 -left-24 size-105 rounded-full bg-blush-200/40 blur-3xl dark:bg-blush-800/25" />
+        <div className="animate-float absolute top-40 -right-28 size-125 rounded-full bg-blush-300/35 blur-3xl dark:bg-blush-700/25" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-blush-300 bg-blush-100 px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-blush-800 uppercase dark:border-blush-700 dark:bg-blush-900/60 dark:text-blush-200">
             <Icon name="leaf" className="size-3.5" />
@@ -64,41 +99,6 @@ export default function Hero() {
           </dl>
         </div>
 
-        <div
-          data-reveal
-          className="relative mt-10 overflow-hidden rounded-4xl bg-gradient-to-br from-blush-100 via-blush-200 to-blush-400 shadow-lift dark:from-blush-900 dark:via-blush-800 dark:to-blush-600"
-        >
-          {heroFailed ? (
-            <div className="flex aspect-4/3 items-center justify-center px-6 text-center sm:aspect-3/1">
-              <p className="text-sm text-blush-900/70 dark:text-blush-100/70">
-                Reemplazá <code className="font-semibold">heroImage</code> en{' '}
-                <code className="font-semibold">src/data/site.js</code>.
-              </p>
-            </div>
-          ) : (
-            <img
-              src={site.heroImage}
-              alt="Productos de skincare y maquillaje coreano de Beauty Store"
-              onError={() => setHeroFailed(true)}
-              fetchPriority="high"
-              decoding="async"
-              className="aspect-4/3 w-full object-cover sm:aspect-3/1"
-            />
-          )}
-
-          <div className="absolute bottom-4 left-4 flex items-center gap-3 rounded-2xl border border-line bg-surface-raised/90 p-4 shadow-soft backdrop-blur-md sm:bottom-6 sm:left-6">
-            <span className="grid size-9 shrink-0 place-items-center rounded-full bg-accent-soft text-accent">
-              <Icon name="check" className="size-4.5" />
-            </span>
-            <p className="text-xs leading-snug text-muted">
-              Envío gratis desde{' '}
-              <span className="font-semibold text-body">
-                {priceFormat.format(site.freeShippingFrom)}
-              </span>
-            </p>
-          </div>
-        </div>
-
         <p className="mt-8 text-center text-sm text-muted">
           ¿Primera vez con K-beauty?{' '}
           <a href="#rutina" className="font-semibold text-accent underline underline-offset-4">
@@ -106,6 +106,19 @@ export default function Hero() {
           </a>{' '}
           en 5 pasos.
         </p>
+
+        {/* Vive en el padding inferior para no superponerse al contenido. */}
+        <div className="absolute bottom-5 left-5 hidden items-center gap-3 rounded-2xl border border-line bg-surface-raised/90 p-4 shadow-soft backdrop-blur-md sm:left-8 sm:flex">
+          <span className="grid size-9 shrink-0 place-items-center rounded-full bg-accent-soft text-accent">
+            <Icon name="check" className="size-4.5" />
+          </span>
+          <p className="text-xs leading-snug text-muted">
+            Envío gratis desde{' '}
+            <span className="font-semibold text-body">
+              {priceFormat.format(site.freeShippingFrom)}
+            </span>
+          </p>
+        </div>
       </div>
     </section>
   )

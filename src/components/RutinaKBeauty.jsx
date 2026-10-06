@@ -14,14 +14,14 @@ export default function RutinaKBeauty() {
         <div className="absolute top-1/3 left-1/2 size-140 -translate-x-1/2 rounded-full bg-blush-200/40 blur-3xl dark:bg-blush-800/20" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div ref={ref} className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Método"
           title="La rutina coreana en 5 pasos"
           text="El orden importa más que la cantidad. Si mantenés estos cinco todos los días, notás la diferencia en un mes."
         />
 
-        <ol ref={ref} className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
           {routine.map((step, i) => (
             <li
               key={step.step}

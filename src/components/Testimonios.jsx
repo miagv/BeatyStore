@@ -40,14 +40,14 @@ export default function Testimonios() {
 
   return (
     <section id="opiniones" className="py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div ref={ref} className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Opiniones"
           title="Lo que dicen ellas"
           text="Reseñas de clientas que ya tienen su rutina armada con nosotros."
         />
 
-        <ul ref={ref} className="mt-14 grid gap-6 md:grid-cols-3">
+        <ul className="mt-10 grid gap-5 md:grid-cols-3">
           {testimonials.map((item, i) => (
             <li
               key={item.name}

@@ -14,7 +14,7 @@ export default function Productos() {
 
   return (
     <section id="productos" className="relative py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div ref={ref} className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Catálogo"
           title="Los básicos que no fallan"
@@ -42,7 +42,7 @@ export default function Productos() {
           })}
         </div>
 
-        <ul className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((product, i) => (
             <li
               key={product.id}

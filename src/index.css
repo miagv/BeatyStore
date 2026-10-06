@@ -132,7 +132,10 @@
 /* ---------------------------------------------------------------------------
    Animaciones de entrada (hook useReveal)
    --------------------------------------------------------------------------- */
-[data-reveal] {
+/* `[data-reveal]` solo se oculta cuando useReveal lo marcó como `pending`:
+   cualquier elemento que el hook no llegue a procesar queda visible (sin
+   animación) en lugar de invisible. */
+[data-reveal='pending'] {
   opacity: 0;
   transform: translateY(20px);
   transition:
