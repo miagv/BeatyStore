@@ -3,7 +3,7 @@ import { navLinks, site } from '../data/site'
 import { useTheme } from '../hooks/useTheme'
 import Icon from './Icon'
 
-export default function Navbar() {
+export default function Navbar({ cartCount, onCartOpen, user, onAuthOpen, onLogout }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
@@ -43,8 +43,8 @@ export default function Navbar() {
           : 'border-b border-transparent'
       }`}
     >
-      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
-        <a href="#inicio" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
+      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-2 px-4 sm:gap-4 sm:px-8">
+        <a href="#inicio" className="group flex shrink-0 items-center gap-2.5" onClick={() => setOpen(false)}>
           <span className="grid size-9 place-items-center rounded-xl bg-accent text-accent-contrast shadow-soft transition-transform duration-300 group-hover:-rotate-6">
             <Icon name="sparkles" className="size-5" />
           </span>
@@ -53,7 +53,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-1 xl:flex">
+        <ul className="hidden min-w-0 items-center gap-1 2xl:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -66,7 +66,46 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+          {user ? (
+            <>
+              <span className="hidden max-w-40 items-center gap-2 truncate rounded-full border border-line bg-surface-raised/70 px-3 py-2 text-sm font-medium text-body sm:inline-flex">
+                <Icon name="user" className="size-4" />
+                <span className="truncate">Hola, {user.name}</span>
+              </span>
+              <button
+                type="button"
+                onClick={onLogout}
+                className="hidden rounded-full px-2 py-2 text-sm font-medium text-muted transition-colors hover:text-accent sm:inline-flex"
+              >
+                Salir
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              onClick={onAuthOpen}
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface-raised/70 px-3 py-2 text-sm font-medium text-body transition-colors hover:border-accent hover:text-accent"
+            >
+              <Icon name="user" className="size-4" />
+              <span className="hidden sm:inline">Ingresar</span>
+            </button>
+          )}
+
+          <button
+            type="button"
+            onClick={onCartOpen}
+            aria-label={`Abrir carrito${cartCount ? `, ${cartCount} productos` : ''}`}
+            className="relative grid size-10 place-items-center rounded-full border border-line bg-surface-raised/70 text-body transition-colors hover:border-accent hover:text-accent"
+          >
+            <Icon name="cart" className="size-4.5" />
+            {cartCount > 0 && (
+              <span className="absolute -top-1 -right-1 grid size-4 place-items-center rounded-full bg-accent text-[10px] font-bold text-accent-contrast">
+                {cartCount}
+              </span>
+            )}
+          </button>
+
           <button
             type="button"
             onClick={toggleTheme}
@@ -78,8 +117,8 @@ export default function Navbar() {
           </button>
 
           <a
-            href="#contacto"
-            className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-contrast shadow-soft transition-transform hover:-translate-y-0.5 sm:inline-block"
+            href="#productos"
+            className="hidden whitespace-nowrap rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-contrast shadow-soft transition-transform hover:-translate-y-0.5 lg:inline-flex"
           >
             Comprar ahora
           </a>
@@ -89,7 +128,7 @@ export default function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
-            className="grid size-10 place-items-center rounded-full border border-line bg-surface-raised/70 text-body xl:hidden"
+            className="grid size-10 place-items-center rounded-full border border-line bg-surface-raised/70 text-body 2xl:hidden"
           >
             <Icon name={open ? 'close' : 'menu'} className="size-5" />
           </button>
@@ -97,7 +136,7 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`overflow-hidden border-line bg-surface transition-[max-height,opacity] duration-300 xl:hidden ${
+        className={`overflow-hidden border-line bg-surface transition-[max-height,opacity] duration-300 2xl:hidden ${
           open ? 'max-h-120 border-t opacity-100' : 'max-h-0 opacity-0'
         }`}
       >

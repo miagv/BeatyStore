@@ -5,7 +5,7 @@ import Icon from './Icon'
 import ProductImage from './ProductImage'
 import SectionHeading from './SectionHeading'
 
-export default function Productos() {
+export default function Productos({ onAddToCart }) {
   const [active, setActive] = useState('todos')
   const ref = useRef(null)
   useReveal(ref)
@@ -70,9 +70,10 @@ export default function Productos() {
                   <span className="font-display text-xl font-semibold text-body">
                     {priceFormat.format(product.price)}
                   </span>
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:bg-accent hover:text-accent-contrast"
+                   <button
+                     type="button"
+                     onClick={() => onAddToCart(product)}
+                     className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:bg-accent hover:text-accent-contrast"
                   >
                     <Icon name="check" className="size-4" />
                     <span className="sr-only">Agregar {product.name} al carrito</span>
